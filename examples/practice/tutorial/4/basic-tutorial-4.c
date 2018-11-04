@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
         if (!GST_CLOCK_TIME_IS_VALID (data.duration)) {
           if (!gst_element_query_duration (data.playbin, GST_FORMAT_TIME, &data.duration)) {
             g_printerr ("Could not query current duration.\n");
-          }
+         }
         }
 
         /* Print current position and total duration */
