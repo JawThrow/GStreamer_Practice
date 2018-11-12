@@ -8,13 +8,13 @@ int main(int argc, char *argv[])
 
     gst_init(&argc, &argv);
 
-    gst_version(&major, &minor, &micro, &nano);
+    //gst_version(&major, &minor, &micro, &nano);
 
-    if(nano == 1)
+    if(GST_VERSION_NANO == 1)
     {
         nano_str = "(CVS)";
     }
-    else if( nano == 2)
+    else if(GST_VERSION_NANO == 2)
     {
         nano_str = "(Prerelease)";        
     }
@@ -23,7 +23,8 @@ int main(int argc, char *argv[])
         nano_str = "";
     }
 
-    printf("This program is linked against Gstreamer %d, %d, %d %s\n", major, minor, micro, nano_str);
+    printf("This program is linked against Gstreamer %d, %d, %d %s\n", GST_VERSION_MAJOR, GST_VERSION_MINOR,
+																	   GST_VERSION_MICRO, nano_str);
 
     return 0;
 }
