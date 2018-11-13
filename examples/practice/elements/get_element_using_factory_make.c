@@ -8,10 +8,10 @@ int main(int argc, char* argv[])
     gst_init(&argc, &argv);
 
     /* create element */
-    element = gst_element_factory_make("fakesrc", "source");
+    element = gst_element_factory_make("facesrc", "source");
     if(!element)
     {
-        g_print("Failed to create element of type \'fakesrc\'\n");
+        g_print("Failed to create element of type 'fakesrc'\n");
         return -1;
     }
 
