@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
 		return -1;
 	}
 
-	bus = gst_element_get_bus(player);
+	bus = gst_element_get_bus(GST_ELEMENT(player));
 	msg = gst_bus_timed_pop_filtered(bus, GST_CLOCK_TIME_NONE, GST_MESSAGE_ERROR | GST_MESSAGE_EOS);
 
 	if(msg != NULL)
