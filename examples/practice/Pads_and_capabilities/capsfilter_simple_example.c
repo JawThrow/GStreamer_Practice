@@ -8,7 +8,7 @@ static gboolean link_elements_with_filter(GstElement* element1, GstElement *elem
 				   "height", G_TYPE_INT, 288,
 				   "framerate", GST_TYPE_FRACTION, 25, 1, NULL);
 
-	link_ok = gst_element_link_filtered(element1, element2, caps); // insert capsfilter inside element1 and element2?
+	link_ok = gst_element_link_filtered(element1, element2, caps); // insert customed capsfilter element between element1 and element2?
 	gst_caps_unref(caps);
 
 	if(!link_ok)
