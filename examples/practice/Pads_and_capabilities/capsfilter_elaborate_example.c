@@ -3,12 +3,17 @@ static gboolean link_elements_with_filter(GstElement *element1, GstElement *elem
 	gboolean link_ok;
 	GstCaps *caps;
 
-	caps = gst_caps_new_full(gst_structure_new("video/x-raw", "width", G_TYPE_INT, 384,
-								  "height", G_TYPE_INT, 288,
-								  "framerate", GST_TYPE_FRACTION, 25, 1, NULL),
-						   NULL);
+	caps = gst_caps_new_full(gst_structure_new("video/x-raw", 
+																						 "width", G_TYPE_INT, 384,
+								  													 "height", G_TYPE_INT, 288,
+								  													 "framerate", GST_TYPE_FRACTION, 25, 1, NULL),
+													 gst_sturcture_new("video/x-bayer",
+																						 "width", G_TYPE_INT, 384,
+																						 "height", G_TYPE_INT, 288,
+																						 "framerate", GST_TYPE_FRACTION, 25, 1, NULL),
+						   						 NULL);
 
-	link_ok = gst_element_link_filter(element1, element2, caps);
+	link_ok = gst_element_link_filtered(element1, element2, caps);
 	gst_caps_unref(caps);
 
 	if(!link_ok)
