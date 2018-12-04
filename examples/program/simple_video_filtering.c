@@ -28,9 +28,8 @@ int main(int argc, char* argv[])
 	// video file name is required to playback in command-line
 	g_object_set(G_OBJECT(inputElement), "location", argv[1], NULL);
 
-//	gst_bin_add_many(GST_BIN(player), inputElement, filter, outputElement, NULL);
+	// gst_bin_add_many(GST_BIN(player), inputElement, filter, outputElement, NULL);
 	gst_bin_add_many(GST_BIN(player), inputElement, outputElement, NULL);
-
 
 	//if(!gst_element_link_many(inputElement, filter, outputElement, NULL))
 	if(!gst_element_link_many(inputElement, outputElement, NULL))
@@ -69,9 +68,7 @@ int main(int argc, char* argv[])
 			g_printerr("Unexpected message received.\n");
 			break;
 		}
-
 		gst_message_unref(msg);
-
 	}
 	
 
